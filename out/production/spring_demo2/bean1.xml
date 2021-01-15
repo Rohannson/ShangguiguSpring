@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="stu" class="com.atguigu.spring5.collectionType.Stu">
+<!--        数组类型属性注入-->
+        <property name="courses">
+            <array>
+                <value>Java</value>
+                <value>Database</value>
+            </array>
+        </property>
+<!--        List类型属性注入-->
+        <property name="list">
+            <list>
+                <value>Tom</value>
+                <value>Marry</value>
+            </list>
+        </property>
+<!--        Map类型属性注入-->
+        <property name="map">
+            <map>
+                <entry key="JAVA" value="Java"></entry>
+                <entry key="PHP" value="php"></entry>
+            </map>
+        </property>
+<!--        Set类型属性注入-->
+        <property name="set">
+            <set>
+                <value>Python</value>
+                <value>Redis</value>
+            </set>
+        </property>
+<!--        注入List集合类型，值是对象-->
+        <property name="courseList">
+            <list>
+                <ref bean="course1"></ref>
+                <ref bean="course2"></ref>
+            </list>
+        </property>
+    </bean>
+
+<!--    创建多个Course类型对象-->
+    <bean id="course1" class="com.atguigu.spring5.collectionType.Course">
+        <property name="cname" value="Spring5 framework"></property>
+    </bean>
+    <bean id="course2" class="com.atguigu.spring5.collectionType.Course">
+        <property name="cname" value="Redis Learning"></property>
+    </bean>
+</beans>
